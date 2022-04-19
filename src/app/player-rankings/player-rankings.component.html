@@ -1,0 +1,22 @@
+<div class="card">    
+    <p-table [value]="players">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="photo"> </th>
+                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="wins">Wins <p-sortIcon field="wins"></p-sortIcon></th>
+                <th pSortableColumn="losses">Losses <p-sortIcon field="losses"></p-sortIcon></th>
+                <th pSortableColumn="position">Position<p-sortIcon field="sen"></p-sortIcon></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-player>
+            <tr>
+                <td><!--img [src]={{player.photo}}--></td>
+                <td>{{player.name}}</td>
+                <td>{{player.wins}}</td>
+                <td>{{player.losses}}</td>
+                <td>{{player.position}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
