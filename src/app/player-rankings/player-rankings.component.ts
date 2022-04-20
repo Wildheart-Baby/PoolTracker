@@ -21,9 +21,12 @@ export class PlayerRankingsComponent implements OnInit {
   /** return the array of player information */
   getPlayers(): void {
     this.playerService.loadData()
-    .subscribe(players => this.players = players);
+    .subscribe(players => {
+      this.players = players;
+      this.sortedPlayers= this.players.sort((a, b) => (a.wins < b.wins) ? 1 : -1);
+    });
 
-    this.sortedPlayers= this.players.sort((a, b) => (a.wins < b.wins) ? 1 : -1);
+    
   }
 
 }

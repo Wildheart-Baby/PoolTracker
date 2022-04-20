@@ -22,8 +22,10 @@ import {DropdownModule} from 'primeng/dropdown';
   imports: [
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     TableModule, 
     CardModule,
     DropdownModule
