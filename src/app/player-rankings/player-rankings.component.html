@@ -1,5 +1,5 @@
 <div class="card">    
-    <p-table [value]="players">
+    <p-table [value]="sortedPlayers">
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="photo"> </th>
@@ -15,7 +15,7 @@
                 <td>{{player.name}}</td>
                 <td>{{player.wins}}</td>
                 <td>{{player.losses}}</td>
-                <td>{{player.position}}</td>
+                <td>{{player.getPosition}}</td>
             </tr>
         </ng-template>
     </p-table>

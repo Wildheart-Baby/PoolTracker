@@ -5,5 +5,5 @@ export class Match {
     player2_id?: number;
     balls_left?: number;
     winner_id?: number;
-    matchEnding: MatchEnding;
+    matchEnding?: MatchEnding;
 }

@@ -9,11 +9,15 @@ import { AppComponent } from './app.component';
 import { PlayerRankingsComponent } from './player-rankings/player-rankings.component';
 import {CardModule} from 'primeng/card';
 import {TableModule} from 'primeng/table';
+import { AddMatchComponent } from './add-match/add-match.component';
+import { FormsModule } from '@angular/forms';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerRankingsComponent
+    PlayerRankingsComponent,
+    AddMatchComponent
   ],
   imports: [
     HttpClientModule,
@@ -21,7 +25,8 @@ import {TableModule} from 'primeng/table';
     HttpClientModule,
     AppRoutingModule,
     TableModule, 
-    CardModule
+    CardModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

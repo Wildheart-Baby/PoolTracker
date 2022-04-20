@@ -1,9 +1,14 @@
 export class Player {
-    id?: number;
-    name?: string;
+    id: number = 0;
+    name: string = "";
     photo?: string;
-    wins?: number;
-    losses?: number;
-    position?: string;
+    wins: number = 0;
+    losses: number = 0;    
     archived?: boolean;
+
+    //position?: string;
+
+    /*public getPosition(): string{
+        return (this.wins * 2) + this.losses + " bob";
+    }*/
 }

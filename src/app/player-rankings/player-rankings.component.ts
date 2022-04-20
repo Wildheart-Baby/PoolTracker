@@ -10,6 +10,7 @@ import { PlayerService } from '../Services/player.service';
 export class PlayerRankingsComponent implements OnInit {
 
     players: Player[] = [];
+    sortedPlayers: Player[] = [];
 
   constructor(private playerService: PlayerService) { }
 
@@ -19,8 +20,10 @@ export class PlayerRankingsComponent implements OnInit {
 
   /** return the array of player information */
   getPlayers(): void {
-    this.playerService.getPlayers()
+    this.playerService.loadData()
     .subscribe(players => this.players = players);
+
+    this.sortedPlayers= this.players.sort((a, b) => (a.wins < b.wins) ? 1 : -1);
   }
 
 }
