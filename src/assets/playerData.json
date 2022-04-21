@@ -4,70 +4,70 @@
         "name": "Simon",
         "photo": "https://picsum.photos/200/300?random=1",
         "wins": 5,
-        "losses": 11,
-		
-		"archived": false
+        "losses": 11,		
+		"archived": false,
+        "position": 8
     },
 	{
 		"id": 2,
 		"name": "Dan",
 		"photo": "https://picsum.photos/200/300?random=1",
         "wins": 15,
-        "losses": 3,
-		
-		"archived": false
+        "losses": 3,		
+		"archived": false,
+        "position": 2
 	},
 	{   
         "id": 3,
         "name": "Stewie",
         "photo": "https://picsum.photos/200/300?random=1",
         "wins": 8,
-        "losses": 2,
-		
-		"archived": false
+        "losses": 2,		
+		"archived": false,
+        "position": 6
     },
 	{
 		"id": 4,
 		"name": "Paul W",
 		"photo": "https://picsum.photos/200/300?random=1",
         "wins": 12,
-        "losses": 4,
-		
-		"archived": false
+        "losses": 4,		
+		"archived": false,
+        "position": 5
 	},
 	{
 		"id": 5,
 		"name": "Lauren",
 		"photo": "https://picsum.photos/200/300?random=1",
         "wins": 18,
-        "losses": 5,
-		
-		"archived": false
+        "losses": 5,		
+		"archived": false,
+        "position": 1
 	},{   
         "id": 6,
         "name": "Paul ",
         "photo": "https://picsum.photos/200/300?random=1",
         "wins": 13,
-        "losses": 2,
-		
-		"archived": false
+        "losses": 2,		
+		"archived": false,
+        "position": 3
     },
 	{
 		"id": 7,
 		"name": "James",
 		"photo": "https://picsum.photos/200/300?random=1",
         "wins": 15,
-        "losses": 9,
-		
-		"archived": false
+        "losses": 9,		
+		"archived": false,
+        "position": 4
 	},
 	{   
         "id": 8,
         "name": "Joanna",
         "photo": "https://picsum.photos/200/300?random=1",
         "wins": 1,
-        "losses": 1,
-		
-		"archived": false
+        "losses": 1,		
+		"archived": false,
+        "position": 7
     }
 ]

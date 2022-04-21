@@ -34,22 +34,15 @@ export class AddMatchComponent implements OnInit {
   }
 
   setPlayer2(player: PlayerList): void{
-    
-
     this.playerNames2  = Object.assign([], this.playerNames1);
     
-    //this.playerNames2 = this.playerNames1;
-    console.log("player 1 names: "+ this.playerNames1.length);
     const indexOfObject = this.playerNames2.findIndex((object) => {
-       return object.playerId === player.playerId;
-           
+       return object.playerId === player.playerId;           
     });
-    console.log("id:" + indexOfObject); 
 
     if (indexOfObject !== -1) {
       this.playerNames2.splice(indexOfObject, 1);
-    }
-    console.log("player 2 names: "+ this.playerNames2.length);
+    }    
   }
 
 }
