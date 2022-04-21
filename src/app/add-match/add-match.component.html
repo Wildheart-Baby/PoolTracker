@@ -1,14 +1,43 @@
 <div class="card">
-    <div class="flex">
-        <div class="card-container overflow-hidden">
-            <div class="flex-initial flex align-items-center justify-content-center  m-2 px-5 py-3">
-            <p-dropdown [options]="playerNames1" optionLabel="playerName" [(ngModel)]="player1" (onChange)="setPlayer2(player1)" placeholder="Select a name"></p-dropdown>
-                
+    <div class="grid p-fluid">
+        <div class="col-8 md:col-4">
+                <label for="player1">Player 1</label>
+                <p-dropdown id="player1" [options]="playerNames1" optionLabel="playerName" [(ngModel)]="player1" (onChange)="setPlayer1(player1)" placeholder="Select player 1" ></p-dropdown>
+         </div>
+        <div class="col-8 md:col-4">            
+                <label for="player2">Player 2</label>
+                <p-dropdown id="player2" [options]="playerNames2" [(ngModel)]="player2" optionLabel="playerName" (onChange)="setPlayer2()" placeholder="Select player 2" ></p-dropdown>            
         </div>
-        <div class="flex-initial flex align-items-center justify-content-center  m-2 px-5 py-3">
-            <p-dropdown [options]="playerNames2" [(ngModel)]="player2" optionLabel="playerName" placeholder="Select a name"></p-dropdown>
-        </div>
-        </div>
-        
     </div>
+    <div class="grid p-fluid">
+        <div class="col-8 md:col-4">
+            <label for="winner">Match winner</label>
+            <p-dropdown id="winner" [options]="players" optionLabel="playerName" placeholder="select winner"></p-dropdown>
+        </div>
+        <div class="col-8 md:col-4">
+            <label for="ballsLeft">Number of balls left on the table</label>
+            <p-dropdown id="ballsLeft" [options]="ballsLeft" placeholder="select number"></p-dropdown>
+        </div>
+    </div>
+    <div class="grid p-fluid">
+        <div class="col-8 md:col-4">
+            <label for="specialCondition">Special condition</label>
+            <p-dropdown id="SpecialCondition" [options]="matchEnding" placeholder="select condition"></p-dropdown>
+        </div>
+            <div class="flex align-items-center justify-content-center">
+            <button pButton pRipple type="button" label="Add match" class="p-button-outlined" ></button>                
+            
+        </div>
+            
+    </div>
+  
+    
+        
+        
+  
+    
+        
+    
+        
+    
 </div>

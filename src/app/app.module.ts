@@ -12,6 +12,7 @@ import {TableModule} from 'primeng/table';
 import { AddMatchComponent } from './add-match/add-match.component';
 import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {DropdownModule} from 'primeng/dropdown';
     FormsModule,
     TableModule, 
     CardModule,
-    DropdownModule
+    DropdownModule, 
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
