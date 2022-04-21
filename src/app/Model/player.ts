@@ -4,11 +4,7 @@ export class Player {
     photo?: string;
     wins: number = 0;
     losses: number = 0;    
-    archived?: boolean;
-
-    //position?: string;
-
-    /*public getPosition(): string{
-        return (this.wins * 2) + this.losses + " bob";
-    }*/
+    archived: boolean = false;
+    position: number = 0;
+    
 }

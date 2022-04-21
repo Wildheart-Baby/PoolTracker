@@ -1,10 +1,14 @@
 <div class="card">
     <div class="flex">
-        <div class="flex-initial flex align-items-center justify-content-center  m-2 px-5 py-3 ">
-            <p-dropdown [options]="playerNames" [(ngModel)]="player1_id" optionLabel="playername"></p-dropdown>
+        <div class="card-container overflow-hidden">
+            <div class="flex-initial flex align-items-center justify-content-center  m-2 px-5 py-3">
+            <p-dropdown [options]="playerNames1" optionLabel="playerName" [(ngModel)]="player1" (onChange)="setPlayer2(player1)" placeholder="Select a name"></p-dropdown>
+                
         </div>
-        <div class="flex-initial flex align-items-center justify-content-center  m-2 px-5 py-3 ">
-            <p-dropdown [options]="playerNames" [(ngModel)]="player2_id" optionLabel="playername"></p-dropdown>
+        <div class="flex-initial flex align-items-center justify-content-center  m-2 px-5 py-3">
+            <p-dropdown [options]="playerNames2" [(ngModel)]="player2" optionLabel="playerName" placeholder="Select a name"></p-dropdown>
         </div>
+        </div>
+        
     </div>
 </div>

@@ -28,7 +28,7 @@
     },
 	{
 		"id": 4,
-		"name": "Paul",
+		"name": "Paul W",
 		"photo": "https://picsum.photos/200/300?random=1",
         "wins": 12,
         "losses": 4,
@@ -45,7 +45,7 @@
 		"archived": false
 	},{   
         "id": 6,
-        "name": "Paul",
+        "name": "Paul ",
         "photo": "https://picsum.photos/200/300?random=1",
         "wins": 13,
         "losses": 2,

@@ -1,4 +1,4 @@
 export class PlayerList {
-    playerid: number = 0;
-    playername: string = "";
+    playerId: number = 0;
+    playerName: string = "";
 }
