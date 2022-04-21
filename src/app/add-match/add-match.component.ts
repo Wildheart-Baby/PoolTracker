@@ -21,7 +21,7 @@ export class AddMatchComponent implements OnInit {
   player1: PlayerList = new PlayerList;
   player2: PlayerList = new PlayerList;
   ballsLeft: string[] = ["0", "1", "2", "3", "4", "5", "6", "7"]
-  matchEnding = Object.values(MatchEnding);
+  matchEnding = Object.values(MatchEnding).filter(key => isNaN(+key)); //strips off the numbers from the enum list
   
   constructor(private playerService: PlayerService) { }
 
@@ -38,6 +38,7 @@ export class AddMatchComponent implements OnInit {
     });    
   }
 
+  /** sets the second player name list and removes the first players name */
   setPlayer1(player: PlayerList): void{
     this.playerNames2  = Object.assign([], this.playerNames1);
     
@@ -51,6 +52,7 @@ export class AddMatchComponent implements OnInit {
     this.setPlayer2();    
   }
 
+  /** adds the players to the winner selection array */
   setPlayer2():void{
     this.players[0] = Object.assign({}, this.player1);
     this.players[1] = Object.assign({}, this.player2);
