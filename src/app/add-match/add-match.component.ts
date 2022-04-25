@@ -40,6 +40,11 @@ export class AddMatchComponent implements OnInit {
 
   /** sets the second player name list and removes the first players name */
   setPlayer1(player: PlayerList): void{
+    if(this.players.length != 0){
+      this.players.pop();
+      this.players.pop();
+    }
+    
     this.playerNames2  = Object.assign([], this.playerNames1);
     
     const indexOfObject = this.playerNames2.findIndex((object) => {
