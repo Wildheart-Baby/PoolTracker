@@ -26,7 +26,8 @@ export class MatchService {
   };
 
   /** A method to return the array of matches */
-  getMatches(): Observable<PlayedMatch[]>{     
+  getMatches(): Observable<PlayedMatch[]>{
+    this.loadData();     
     return this._matches.asObservable();
   }
 

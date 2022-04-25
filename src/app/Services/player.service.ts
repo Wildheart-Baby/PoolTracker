@@ -28,6 +28,7 @@ export class PlayerService {
 
   /**A method to get the players */
   getPlayers(): Observable<Player[]>{       
+    this.loadData();
     return this._players.asObservable();
   }
 
