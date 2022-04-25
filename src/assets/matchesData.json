@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "player1": "",
+        "player2": "",
+        "winner": "",
+        "balls_left": 0,
+        "matchEnding": 0
+    },
+    {
+        "id": 2,
+        "player1": "",
+        "player2": "",
+        "winner": "",
+        "balls_left": 0,
+        "matchEnding": 0
+    },
+    {
+        "id": 3,
+        "player1": "",
+        "player2": "",
+        "winner": "",
+        "balls_left": 0,
+        "matchEnding": 0
+    }
+]

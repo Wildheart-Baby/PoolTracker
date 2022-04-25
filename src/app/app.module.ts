@@ -13,12 +13,14 @@ import { AddMatchComponent } from './add-match/add-match.component';
 import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { MatchesComponent } from './matches/matches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerRankingsComponent,
-    AddMatchComponent
+    AddMatchComponent,
+    MatchesComponent
   ],
   imports: [
     HttpClientModule,
