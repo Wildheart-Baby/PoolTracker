@@ -12,13 +12,12 @@ export class MatchService {
 
   private _matches: BehaviorSubject<PlayedMatch[]>;
 
-  /*private dataStore: {
+  private dataStore: {
     matches: PlayedMatch[]
-  }
-  */
+  }  
   
   constructor(private http: HttpClient) {
-    //this.dataStore = { matches: [] };
+    this.dataStore = { matches: [] };
     this._matches = new BehaviorSubject<PlayedMatch[]>([]);
    }
 
@@ -32,7 +31,11 @@ export class MatchService {
   }
 
   /**A method to mock return the matches - TODO implement http call with an API */
-  loadData(): Observable<PlayedMatch[]> {    
-    return of(MatchesJson)    
+  loadData() {    
+    return of(MatchesJson)
+    .subscribe(data => {
+      this.dataStore.matches = data;
+      this._matches.next(Object.assign({}, this.dataStore).matches);
+    });     
     }
 }

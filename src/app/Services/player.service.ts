@@ -26,7 +26,8 @@ export class PlayerService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  getPlayers(): Observable<Player[]>{      
+  /**A method to get the players */
+  getPlayers(): Observable<Player[]>{       
     return this._players.asObservable();
   }
 
@@ -35,14 +36,17 @@ export class PlayerService {
   }
 
   /**A method to mock return the players - TODO implement http call with an API */
-  loadData(): Observable<Player[]> {    
-    this.dataStore.players = (PlayersJson);    
-    return of(PlayersJson);    
+  loadData() {      
+    return of(PlayersJson)
+    .subscribe(data => {
+      this.dataStore.players = data;
+      this._players.next(Object.assign({}, this.dataStore).players);
+    });    
     }
 
    /** A method to return the name of a player from the players list */ 
    getPlayerName(id: number): string{
-    return "" + this.dataStore.players.find(x => x.id === id)?.name;; 
+    return this.dataStore.players.find(x => x.id === id)?.name as string;
    } 
   
    

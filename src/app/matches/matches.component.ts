@@ -26,7 +26,7 @@ export class MatchesComponent implements OnInit {
 
   /** A method to return the matches */
   getMatches(): void {
-    this.matchesService.loadData()
+    this.matchesService.getMatches()
     .subscribe(matches => {
       this.matches = matches;      
     })

@@ -28,7 +28,7 @@ export class AddMatchComponent implements OnInit {
   ngOnInit(): void {
     this.matchRecord = new Match();
 
-    this.playerService.loadData().forEach(data => {
+    this.playerService.getPlayers().forEach(data => {
       for(let i = 0; i < data.length; i++){
         this.player = new PlayerList();
         this.player.playerId = data[i].id;
@@ -45,7 +45,7 @@ export class AddMatchComponent implements OnInit {
       this.players.pop();
     }
     
-    this.playerNames2  = Object.assign([], this.playerNames1);
+    this.playerNames2  = Object.assign([], this.playerNames1); //clones the player names 1 array
     
     const indexOfObject = this.playerNames2.findIndex((object) => {
        return object.playerId === player.playerId;           
