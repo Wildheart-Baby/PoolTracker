@@ -21,7 +21,6 @@ export class MatchesComponent implements OnInit {
   ngOnInit(): void {
     this.getMatches();
     this.playerService.loadData();
-    this.testGetName();
   }
 
   /** A method to return the matches */
@@ -32,11 +31,5 @@ export class MatchesComponent implements OnInit {
     })
   }
 
-  /** test function to check get name works */
-  testGetName(): void{
-    console.log(this.playerService.getPlayerName(1));
-    console.log(this.playerService.getPlayerName(2));
-    console.log(this.playerService.getPlayerName(3));
-  }
 
 }
