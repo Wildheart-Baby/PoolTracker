@@ -6,7 +6,7 @@
                 <th pSortableColumn="player2">Player 2</th>
                 <th pSortableColumn="winner">Winner</th>
                 <th pSortableColumn="ballsLeft">Balls left on table</th>
-                <th pSortableColumn="matchEnding">Match ending<p-sortIcon field="sen"></p-sortIcon></th>
+                <th pSortableColumn="matchEnding">Match ending<p-sortIcon field="sen"></p-sortIcon></th>                
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-match>
@@ -14,9 +14,10 @@
                 <td>{{match.player1}}</td>
                 <td>{{match.player2}}</td>
                 <td>{{match.winner}}</td>
-                <td>{{match.ballsLeft}}</td>
+                <td>{{match.balls_left}}</td>
                 <td>{{match.matchEnding}}</td>
             </tr>
         </ng-template>
     </p-table>
+    <br/><button pButton pRipple type="button" label="Add match" class="p-button-outlined" (click)="openNewMatchDialog()"></button>
 </div>

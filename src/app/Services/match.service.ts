@@ -50,6 +50,7 @@ export class MatchService {
         this.dataStore.matches.push(this.newPlayedMatch(match));
         this._matches.next(Object.assign({}, this.dataStore).matches);
         resolver(match);
+        
       })
     }
 
@@ -58,7 +59,7 @@ export class MatchService {
       this.playedMatch = new PlayedMatch;
       this.playedMatch.id = this.dataStore.matches.length + 1;
       this.playedMatch.player1 = this.playerService.getPlayerName(match.player1_id);
-      this.playedMatch.player2 = this.playerService.getPlayerName(match.player1_id);
+      this.playedMatch.player2 = this.playerService.getPlayerName(match.player2_id);
       this.playedMatch.winner = this.playerService.getPlayerName(match.winner_id);
       this.playedMatch.balls_left = match.balls_left;
       //this.playedMatch.matchEnding = MatchEnding. [match.matchEnding as keyof typeof AnimalEnum];

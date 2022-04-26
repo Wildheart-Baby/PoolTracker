@@ -1,26 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { AddMatchComponent } from '../add-match/add-match.component';
 import { Match } from '../Model/match';
 import { PlayedMatch } from '../Model/playedMatch';
 import { MatchService } from '../Services/match.service';
 import { PlayerService } from '../Services/player.service';
+import {DialogService, DynamicDialogConfig, DynamicDialogRef} from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-matches',
   templateUrl: './matches.component.html',
-  styleUrls: ['./matches.component.less']
+  styleUrls: ['./matches.component.less'],
+  providers: [DialogService]
 })
 export class MatchesComponent implements OnInit {
 
   matches: PlayedMatch[] = [];
   
 
-  constructor(private matchesService: MatchService, private playerService: PlayerService) {  }
+  constructor(private matchesService: MatchService, public dialogService: DialogService) {  }
 
   ngOnInit(): void {
     this.getMatches();
-    //this.playerService.loadData();
   }
 
   /** A method to return the matches */
@@ -31,5 +33,12 @@ export class MatchesComponent implements OnInit {
     })
   }
 
-
+   /**The function to open a dialog with the new match component */
+   openNewMatchDialog(): void {
+     console.log("some test words");
+    this.dialogService.open(AddMatchComponent, {         
+      header: 'New match',     
+      width: '40%'
+    });
+  }
 }
