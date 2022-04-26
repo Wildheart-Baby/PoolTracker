@@ -20,7 +20,7 @@ export class MatchesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMatches();
-    this.playerService.loadData();
+    //this.playerService.loadData();
   }
 
   /** A method to return the matches */
