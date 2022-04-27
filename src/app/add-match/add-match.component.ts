@@ -76,7 +76,19 @@ export class AddMatchComponent implements OnInit {
 
   initialiseForm(): void {
     this.matchForm = this.formBuilder.group({
-      player1_id: new FormControl(this.matchRecord.player1_id ? this.matchRecord.player1_id : '', [
+      player1_control: new FormControl(this.player1 ? this.player1 : '', [
+          Validators.required
+        ]),
+      player2_control: new FormControl(this.player2 ? this.player2 : '', [
+          Validators.required
+        ]),
+      winner_control: new FormControl(this.winner ? this.winner : '', [
+          Validators.required
+        ]),
+      balls_control: new FormControl(this.balls ? this.balls : '', [
+          Validators.required
+        ]),
+      matchEnd_control: new FormControl(this.matchEnding ? this.matchEnding : '', [
           Validators.required
         ])
     });
