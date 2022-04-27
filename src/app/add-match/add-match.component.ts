@@ -29,7 +29,7 @@ export class AddMatchComponent implements OnInit {
   player2: PlayerList = new PlayerList;
   winner: PlayerList = new PlayerList;
   balls!: number;
-  matchEnding!: number;
+  matchEnding!: string;
 
   matchForm: any;
 

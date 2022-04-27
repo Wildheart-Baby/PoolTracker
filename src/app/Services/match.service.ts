@@ -14,6 +14,7 @@ export class MatchService {
 
   private _matches: BehaviorSubject<PlayedMatch[]>;
   playedMatch!: PlayedMatch;
+  matchEnd!: string;
 
   private dataStore: {
     matches: PlayedMatch[]
@@ -62,8 +63,11 @@ export class MatchService {
       this.playedMatch.player2 = this.playerService.getPlayerName(match.player2_id);
       this.playedMatch.winner = this.playerService.getPlayerName(match.winner_id);
       this.playedMatch.balls_left = match.balls_left;
-      //this.playedMatch.matchEnding = MatchEnding. [match.matchEnding as keyof typeof AnimalEnum];
+      this.matchEnd = match.matchEnding;
+      this.playedMatch.matchEnding = this.matchEnd;
       return this.playedMatch;
     }
  
+    
+
 }
