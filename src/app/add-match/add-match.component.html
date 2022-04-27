@@ -1,33 +1,37 @@
-<div class="card"> 
-    <div class="grid p-fluid">
-        <div class="col-6 md:col-6">
-                <label for="player1">Player 1</label>
-                <p-dropdown appendTo="body" id="player1" [options]="playerNames1" optionLabel="playerName" [(ngModel)]="player1" (onChange)="setPlayer1(player1)" placeholder="Select player" ></p-dropdown>
-         </div>
-        <div class="col-6 md:col-6">            
-                <label for="player2">Player 2</label>
-                <p-dropdown appendTo="body" id="player2" [options]="playerNames2" [(ngModel)]="player2" optionLabel="playerName" (onChange)="setPlayer2()" placeholder="Select player" ></p-dropdown>            
-        </div>
-    </div>
-    <div class="grid p-fluid">
-        <div class="col-6 md:col-6">
-            <label for="winner">Match winner</label>
-            <p-dropdown appendTo="body" id="winner" [options]="players" optionLabel="playerName" [(ngModel)]="winner"  placeholder="Select winner"></p-dropdown>
-        </div>
-        <div class="col-6 md:col-6">
-            <label for="ballsLeft">Number of balls left</label>
-            <p-dropdown appendTo="body" id="ballsLeft" [options]="ballsLeft" [(ngModel)]="balls" placeholder="Select number"></p-dropdown>
-        </div>
-    </div>
-    <div class="grid p-fluid">
-        <div class="col-6 md:col-6">
-            <label for="specialCondition">Special condition</label>
-            <p-dropdown appendTo="body" id="SpecialCondition" [options]="matchEndingList" [(ngModel)]="matchEnding" placeholder="Select condition"></p-dropdown>
-        </div>        
-        <div class="col-6 md:col-6" >
-            <br>
-            <button pButton pRipple type="button" label="Add match" (click)="save()" class="p-button-outlined"></button>                            
+<div class="card">
+    <form [formGroup]="matchForm">
+        <div class="form-group">        
+            <div class="grid p-fluid">
+                <div class="col-6 md:col-6">
+                        <label for="player1">Player 1</label>
+                        <p-dropdown appendTo="body" id="player1" [options]="playerNames1" optionLabel="playerName" formControlName="player1_control" (onChange)="setPlayer1(player1)" placeholder="Select player" ></p-dropdown>
+                </div>
+                <div class="col-6 md:col-6">            
+                        <label for="player2">Player 2</label>
+                        <p-dropdown appendTo="body" id="player2" [options]="playerNames2" formControlName="player2_control" optionLabel="playerName" (onChange)="setPlayer2()" placeholder="Select player" ></p-dropdown>            
+                </div>
+            </div>
+            <div class="grid p-fluid">
+                <div class="col-6 md:col-6">
+                    <label for="winner">Match winner</label>
+                    <p-dropdown appendTo="body" id="winner" [options]="players" optionLabel="playerName" formControlName="winner_control" placeholder="Select winner" ></p-dropdown>
+                </div>
+                <div class="col-6 md:col-6">
+                    <label for="ballsLeft">Number of balls left</label>
+                    <p-dropdown appendTo="body" id="ballsLeft" [options]="ballsLeft" formControlName="balls_control" placeholder="Select number"></p-dropdown>
+                </div>
+            </div>
+            <div class="grid p-fluid">
+                <div class="col-6 md:col-6">
+                    <label for="specialCondition">Special condition</label>
+                    <p-dropdown appendTo="body" id="SpecialCondition" [options]="matchEndingList" formControlName="matchEnd_control" placeholder="Select condition"></p-dropdown>
+                </div>        
+                <div class="col-6 md:col-6" >
+                    <br>
+                    <button pButton pRipple label="Add match" [disabled]="!matchForm.valid" (click)="save()" class="p-button-outlined"></button>                                                
+                </div> 
+            </div>
         </div> 
-    </div>
+    </form>
   </div>
   

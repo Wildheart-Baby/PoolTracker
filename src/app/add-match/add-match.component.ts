@@ -51,6 +51,7 @@ export class AddMatchComponent implements OnInit {
 
   /** sets the second player name list and removes the first players name */
   setPlayer1(player: PlayerList): void{
+    console.log(this.matchForm.value.player1_control)
     if(this.players.length != 0){
       this.players.pop();
       this.players.pop();
@@ -59,7 +60,7 @@ export class AddMatchComponent implements OnInit {
     this.playerNames2  = Object.assign([], this.playerNames1); //clones the player names 1 array
     
     const indexOfObject = this.playerNames2.findIndex((object) => {
-       return object.playerId === player.playerId;           
+       return object.playerId === this.matchForm.value.player1_control.playerId;           
     });
 
     if (indexOfObject !== -1) {
@@ -70,44 +71,33 @@ export class AddMatchComponent implements OnInit {
 
   /** adds the players to the winner selection array */
   setPlayer2():void{
-    this.players[0] = Object.assign({}, this.player1);
-    this.players[1] = Object.assign({}, this.player2);
+    this.players[0] = Object.assign({}, this.matchForm.value.player1_control);
+    this.players[1] = Object.assign({}, this.matchForm.value.player2_control);
   }
 
   initialiseForm(): void {
     this.matchForm = this.formBuilder.group({
-      player1_control: new FormControl(this.player1 ? this.player1 : '', [
-          Validators.required
-        ]),
-      player2_control: new FormControl(this.player2 ? this.player2 : '', [
-          Validators.required
-        ]),
-      winner_control: new FormControl(this.winner ? this.winner : '', [
-          Validators.required
-        ]),
-      balls_control: new FormControl(this.balls ? this.balls : '', [
-          Validators.required
-        ]),
-      matchEnd_control: new FormControl(this.matchEnding ? this.matchEnding : '', [
-          Validators.required
-        ])
+      player1_control: new FormControl('', [Validators.required]),
+      player2_control: new FormControl('', [Validators.required]),
+      winner_control: new FormControl('', [Validators.required]),
+      balls_control: new FormControl('', [Validators.required]),
+      matchEnd_control: new FormControl('', [])
     });
   }
-
   
   save(){
-    this.copyData();    
+    this.copyData();  
     this.matchService.addMatch(this.matchRecord);    
     this.dialogRef.close();
   }
 
   /** A method to copy form data to the match record object */
   copyData(){
-    this.matchRecord.player1_id = this.player1.playerId;
-    this.matchRecord.player2_id = this.player2.playerId;
-    this.matchRecord.winner_id = this.winner.playerId;
-    this.matchRecord.balls_left = this.balls;
-    this.matchRecord.matchEnding = this.matchEnding;
+    this.matchRecord.player1_id = this.matchForm.value.player1_control.playerId as number;
+    this.matchRecord.player2_id = this.matchForm.value.player2_control.playerId as number;
+    this.matchRecord.winner_id = this.matchForm.value.winner_control.playerId as number;
+    this.matchRecord.balls_left = this.matchForm.value.balls_control as number;
+    this.matchRecord.matchEnding = this.matchForm.value.matchEnd_control as string;
   }
 
 }
