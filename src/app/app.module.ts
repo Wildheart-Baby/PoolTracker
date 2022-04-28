@@ -17,6 +17,7 @@ import { ButtonModule } from 'primeng/button';
 import { MatchesComponent } from './matches/matches.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { AddUserComponent } from './add-user/add-user.component';
+import { MenubarModule } from 'primeng/menubar';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AddUserComponent } from './add-user/add-user.component';
     CardModule,
     DropdownModule, 
     ButtonModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
