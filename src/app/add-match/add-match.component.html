@@ -8,13 +8,13 @@
                 </div>
                 <div class="col-6 md:col-6">            
                         <label for="player2">Player 2</label>
-                        <p-dropdown appendTo="body" id="player2" [options]="player2Options" formControlName="player2_id" optionLabel="name" optionValue="id" placeholder="Select player" [disabled]="!matchForm.controls.player1_id.valid"></p-dropdown>            
+                        <p-dropdown appendTo="body" id="player2" [options]="player2Options" formControlName="player2_id" optionLabel="name" optionValue="id" placeholder="Select player" ></p-dropdown>            
                 </div>
             </div>
             <div class="grid p-fluid">
                 <div class="col-6 md:col-6">
                     <label for="winner">Match winner</label>
-                    <p-dropdown appendTo="body" id="winner" [options]="winnerOptions" optionLabel="name" formControlName="winner_id" placeholder="Select winner" optionValue="id" [disabled]="!matchForm.controls.player2_id.valid"></p-dropdown>
+                    <p-dropdown appendTo="body" id="winner" [options]="winnerOptions" optionLabel="name" formControlName="winner_id" placeholder="Select winner" optionValue="id" ></p-dropdown>
                 </div>
                 <div class="col-6 md:col-6">
                     <label for="ballsLeft">Number of balls left</label>

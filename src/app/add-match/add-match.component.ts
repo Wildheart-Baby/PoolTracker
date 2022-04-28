@@ -44,8 +44,8 @@ export class AddMatchComponent implements OnInit {
   initialiseForm(): void {
     this.matchForm = this.formBuilder.group({
       player1_id: new FormControl('', [Validators.required]),
-      player2_id: new FormControl('', [Validators.required]),
-      winner_id: new FormControl('', [Validators.required]),
+      player2_id: new FormControl({value: '', disabled: true}, [Validators.required]),
+      winner_id: new FormControl({value: '', disabled: true}, [Validators.required]),
       balls_left: new FormControl('', [Validators.required]),
       matchEnding: new FormControl('', [])
     });
@@ -58,6 +58,8 @@ export class AddMatchComponent implements OnInit {
       this.winnerOptions[0] = player1[0];
 
       this.player2Options = tempPlayers;
+      
+      this.matchForm.controls['player2_id'].enable();
     });
 
     this.matchForm.controls['player2_id'].valueChanges.subscribe((player2Id: number) => {
@@ -66,6 +68,7 @@ export class AddMatchComponent implements OnInit {
       const player2 = tempPlayers.splice(player2Index, 1);
 
       this.winnerOptions[1] = player2[0];
+      this.matchForm.controls['winner_id'].enable();
     });
   }
   
