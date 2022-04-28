@@ -2,20 +2,20 @@
     <p-table [value]="matches">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="player1">Player 1</th>
-                <th pSortableColumn="player2">Player 2</th>
-                <th pSortableColumn="winner">Winner</th>
-                <th pSortableColumn="ballsLeft">Balls left on table</th>
-                <th pSortableColumn="matchEnding">Match ending<p-sortIcon field="sen"></p-sortIcon></th>                
+                <th ><div class="centred-text">Player 1</div></th>
+                <th><div class="centred-text">Player 2</div></th>
+                <th><div class="centred-text">Winner</div></th>
+                <th><div class="centred-text">Balls left on table</div></th>
+                <th><div class="centred-text">Match ending</div></th>                
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-match>
             <tr>
-                <td>{{match.player1}}</td>
-                <td>{{match.player2}}</td>
-                <td>{{match.winner}}</td>
-                <td>{{match.balls_left}}</td>
-                <td>{{match.matchEnding}}</td>
+                <td><div class="centred-text">{{match.player1}}</div></td>
+                <td><div class="centred-text">{{match.player2}}</div></td>
+                <td><div class="centred-text">{{match.winner}}</div></td>
+                <td><div class="centred-text">{{match.balls_left}}</div></td>
+                <td><div class="centred-text">{{match.matchEnding}}</div></td>
             </tr>
         </ng-template>
     </p-table>
