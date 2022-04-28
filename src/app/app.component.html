@@ -1,4 +1,8 @@
 <h1> {{title}}</h1>
-<p><p-menubar p-menuitem-icon="" [model]="items"></p-menubar></p>
+<p><p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <img src="assets/8-ball.png" height="40" class="mr-2">
+    </ng-template>
+</p-menubar></p>
 
 <router-outlet></router-outlet>

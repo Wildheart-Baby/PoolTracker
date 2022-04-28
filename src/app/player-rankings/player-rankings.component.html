@@ -2,20 +2,20 @@
     <p-table [value]="sortedPlayers">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="photo" width="75px"></th>
-                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-                <th pSortableColumn="wins">Wins <p-sortIcon field="wins"></p-sortIcon></th>
-                <th pSortableColumn="losses">Losses <p-sortIcon field="losses"></p-sortIcon></th>
-                <th pSortableColumn="position">Position<p-sortIcon field="sen"></p-sortIcon></th>
+                <th pSortableColumn="photo" width="75px" height="50px"></th>
+                <th pSortableColumn="name"><div class="centred-text">Name <p-sortIcon field="name"></p-sortIcon></div></th>
+                <th pSortableColumn="wins"><div class="centred-text">Wins <p-sortIcon field="wins"></p-sortIcon></div></th>
+                <th pSortableColumn="losses"><div class="centred-text">Losses <p-sortIcon field="losses"></p-sortIcon></div></th>
+                <th pSortableColumn="position"><div class="centred-text">Position<p-sortIcon field="sen"></p-sortIcon></div></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-player>
             <tr>
                 <td><img src="{{player.photo}}" height="75" ></td>
-                <td>{{player.name}}</td>
-                <td>{{player.wins}}</td>
-                <td>{{player.losses}}</td>
-                <td>{{player.position}}</td>
+                <td><div class="centred-text">{{player.name}}</div></td>
+                <td><div class="centred-text">{{player.wins}}</div></td>
+                <td><div class="centred-text">{{player.losses}}</div></td>
+                <td><div class="centred-text">{{player.position}}</div></td>
             </tr>
         </ng-template>
     </p-table>

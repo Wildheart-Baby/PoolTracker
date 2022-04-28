@@ -23,16 +23,16 @@ constructor(public dialogService: DialogService, private router: Router){}
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Leader Board',
+        label: 'Rankings',
         items: [
-            {label: 'Rankings', routerLink: ['/rankings'] },
+            {label: 'Leader Board', routerLink: ['/rankings'] },
             {label: 'New Player', command: () => this.newPlayer() }
         ]
       },
       {
-        label: 'Played Matches',
+        label: 'Matches',
         items: [
-            {label: 'Matches', routerLink: ['/matches'] },
+            {label: 'Played Matches', routerLink: ['/matches'] },
             {label: 'New Match', command: () => this.newMatch() }
         ]
       }
