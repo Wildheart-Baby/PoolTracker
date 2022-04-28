@@ -16,6 +16,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { MatchesComponent } from './matches/matches.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DynamicDialogModule } from 'primeng/dynamicdialog';
     AppComponent,
     PlayerRankingsComponent,
     AddMatchComponent,
-    MatchesComponent
+    MatchesComponent,
+    AddUserComponent
   ],
   imports: [
     HttpClientModule,
