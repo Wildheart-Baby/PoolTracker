@@ -23,7 +23,7 @@ export class PlayerRankingsComponent implements OnInit {
     this.playerService.getPlayers()
     .subscribe(players => {
       this.players = players;
-      this.sortedPlayers= this.players.sort((a, b) => (a.wins < b.wins) ? 1 : -1);
+      this.sortedPlayers= this.players.sort((a, b) => (a.position > b.position) ? 1 : -1);
     });   
 
     
