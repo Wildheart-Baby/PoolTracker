@@ -36,8 +36,9 @@ export class AddMatchComponent implements OnInit {
 
   /**Gets the players*/
   getPlayers(): void {
-    this.playerService.getPlayers().subscribe(players => {
-      this.players = players; 
+    this.playerService.getPlayers().subscribe(players => {       
+      const tempPlayers = players.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      this.players = tempPlayers;
     }); 
   }
 
