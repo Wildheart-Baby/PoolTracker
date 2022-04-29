@@ -22,6 +22,16 @@ export class AddUserComponent implements OnInit {
   }
 
   initialiseForm(): void {
-    this.userForm = this.formBuilder.group({});
+    this.userForm = this.formBuilder.group({
+      name: new FormControl('', [Validators.required]),
+      wins: new FormControl(0),
+      losses: new FormControl(0),
+      archived: new FormControl(false)
+    });
+  }
+
+  save(){
+    this.playerService.addUser(this.userForm.value);
+    this.dialogRef.close();
   }
 }
