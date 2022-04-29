@@ -5,6 +5,7 @@ import { AddMatchComponent } from './add-match/add-match.component';
 import { DialogService } from 'primeng/dynamicdialog';
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { Router } from '@angular/router';
+import { ArchivePlayerComponent } from './archive-player/archive-player.component';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,8 @@ constructor(public dialogService: DialogService, private router: Router){}
         label: 'Rankings',
         items: [
             {label: 'Leader Board', routerLink: ['/rankings'] },
-            {label: 'New Player', command: () => this.newPlayer() }
+            {label: 'New Player', command: () => this.newPlayer() },
+            {label: 'Archive Player', command: () => this.archivePlayer()}
         ]
       },
       {
@@ -42,7 +44,7 @@ constructor(public dialogService: DialogService, private router: Router){}
   newPlayer(){
     this.router.navigate(['/rankings']);
     this.dialogService.open(AddPlayerComponent, {         
-      header: 'New user',     
+      header: 'New player',     
       width: '30%'
     });
   }
@@ -51,6 +53,14 @@ constructor(public dialogService: DialogService, private router: Router){}
     this.router.navigate(['/matches']);
     this.dialogService.open(AddMatchComponent, {         
       header: 'New match',     
+      width: '40%'
+    });
+  }
+
+  archivePlayer(){
+    this.router.navigate(['/rankings']);
+    this.dialogService.open(ArchivePlayerComponent, {         
+      header: 'Archive player',     
       width: '40%'
     });
   }

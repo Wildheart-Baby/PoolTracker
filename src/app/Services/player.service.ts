@@ -62,7 +62,8 @@ export class PlayerService {
    }
 
    archivePlayer(player: Player){
-      
+      const player1Index = this.dataStore.players.findIndex(x => x.id === player.id);
+      this.dataStore.players[player1Index].archived = true;
    }
 
 }

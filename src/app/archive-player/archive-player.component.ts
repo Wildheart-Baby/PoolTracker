@@ -10,7 +10,7 @@ import { PlayerService } from '../Services/player.service';
   styleUrls: ['./archive-player.component.less']
 })
 export class ArchivePlayerComponent implements OnInit {
-  players: Player[] = [];
+  playersList: Player[] = [];
   archiveForm: any;
 
   constructor(
@@ -20,19 +20,21 @@ export class ArchivePlayerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.initialiseForm();
+    this.getPlayers();
   }
 
   initialiseForm(): void {
     this.archiveForm = this.formBuilder.group({
-      archive: new FormControl('', [Validators.required])
+      id: new FormControl('', [Validators.required])
     });
   }
    
   /**Gets the players*/
-  getPlayers(): void {
+  getPlayers(): void {    
     this.playerService.getPlayers().subscribe(players => {       
-      const tempPlayers = players.sort((a, b) => (a.name > b.name) ? 1 : -1);
-      this.players = tempPlayers;
+      const tempPlayers = [...players];
+      this.playersList = tempPlayers.sort((a, b) => (a.name > b.name) ? 1 : -1);
     }); 
   }
 
