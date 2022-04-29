@@ -20,7 +20,7 @@ export class AddMatchComponent implements OnInit {
 
   ballsLeft: string[] = ["0", "1", "2", "3", "4", "5", "6", "7"]
 
-  matchEndingList = Object.values(MatchEnding).filter(key => isNaN(+key)); //strips off the numbers from the enum list
+  matchEndingList: (string | MatchEnding)[] = [];
 
   constructor(
     private playerService: PlayerService,
@@ -32,6 +32,7 @@ export class AddMatchComponent implements OnInit {
   ngOnInit(): void {
     this.initialiseForm();
     this.getPlayers();
+    this.getMatchEndings();
   }
 
   /**Gets the players*/
@@ -40,6 +41,10 @@ export class AddMatchComponent implements OnInit {
       const tempPlayers = players.sort((a, b) => (a.name > b.name) ? 1 : -1);
       this.players = tempPlayers;
     }); 
+  }
+
+  getMatchEndings(){
+    this.matchEndingList = Object.values(MatchEnding).filter(key => isNaN(+key)); //strips off the numbers from the enum list
   }
 
   initialiseForm(): void {
@@ -70,6 +75,17 @@ export class AddMatchComponent implements OnInit {
 
       this.winnerOptions[1] = player2[0];
       this.matchForm.controls['winner_id'].enable();
+    });
+
+    this.matchForm.controls['balls_left'].valueChanges.subscribe((balls: number) => {
+        if(balls < 7){
+          const tempMatchEndings = [...this.matchEndingList];
+          const matchEndIndex = tempMatchEndings.findIndex(x => x === '7 ball win');
+          tempMatchEndings.splice(matchEndIndex, 1);
+          this.matchEndingList = [...tempMatchEndings];
+        } else {
+          this.getMatchEndings();
+        }        
     });
   }
   
