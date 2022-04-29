@@ -4,13 +4,13 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.less']
+  selector: 'app-add-player',
+  templateUrl: './add-player.component.html',
+  styleUrls: ['./add-player.component.less']
 })
-export class AddUserComponent implements OnInit {
+export class AddPlayerComponent implements OnInit {
 
-  userForm: any;
+  playerForm: any;
   constructor(
     private playerService: PlayerService,
     private formBuilder: FormBuilder,
@@ -22,7 +22,7 @@ export class AddUserComponent implements OnInit {
   }
 
   initialiseForm(): void {
-    this.userForm = this.formBuilder.group({
+    this.playerForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required]),
       wins: new FormControl(0),
       losses: new FormControl(0),
@@ -31,7 +31,7 @@ export class AddUserComponent implements OnInit {
   }
 
   save(){
-    this.playerService.addUser(this.userForm.value);
+    this.playerService.addPlayer(this.playerForm.value);
     this.dialogRef.close();
   }
 }

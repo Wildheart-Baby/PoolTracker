@@ -2,7 +2,7 @@
     <p-table [value]="sortedPlayers">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="photo" width="75px" height="50px"></th>
+                <th pSortableColumn="photo" width="25px"></th>
                 <th pSortableColumn="name"><div class="centred-text">Name <p-sortIcon field="name"></p-sortIcon></div></th>
                 <th pSortableColumn="wins"><div class="centred-text">Wins <p-sortIcon field="wins"></p-sortIcon></div></th>
                 <th pSortableColumn="losses"><div class="centred-text">Losses <p-sortIcon field="losses"></p-sortIcon></div></th>
@@ -11,7 +11,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-player>
             <tr>
-                <td><img src="{{player.photo}}" height="75" ></td>
+                <td><div class="centred-text"><img src="{{player.photo}}" height="50" ></div></td>
                 <td><div class="centred-text">{{player.name}}</div></td>
                 <td><div class="centred-text">{{player.wins}}</div></td>
                 <td><div class="centred-text">{{player.losses}}</div></td>

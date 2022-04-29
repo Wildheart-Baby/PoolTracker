@@ -54,11 +54,15 @@ export class PlayerService {
     return "";
    } 
   
-   addUser(user: Player){
-     user.id = this.dataStore.players.length + 1;     
-     user.position = user.id;
-     this.dataStore.players.push(user);
-     this._players.next(Object.assign({}, this.dataStore).players);
+   addPlayer(player: Player){
+    player.id = this.dataStore.players.length + 1;     
+    player.position = player.id;
+    this.dataStore.players.push(player);
+    this._players.next(Object.assign({}, this.dataStore).players);
+   }
+
+   archivePlayer(player: Player){
+      
    }
 
 }

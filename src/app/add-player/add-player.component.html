@@ -1,0 +1,13 @@
+<div class="card">
+    <form [formGroup]="playerForm">
+        <div class="form-group">
+            <div class="col-8 md:col-8">
+                <label for="username">Username</label>
+                <input type="text" id="username" optionValue="name" formControlName="name" placeholder="enter username"> 
+            </div>
+            <div class="col-4 md:col-4" >                
+                <button type="button" pButton pRipple label="Add user" [disabled]="!playerForm.valid" (click)="save()" class="p-button-outlined"></button>                                                
+            </div> 
+        </div>
+    </form>
+</div>

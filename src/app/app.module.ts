@@ -16,8 +16,9 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { MatchesComponent } from './matches/matches.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
-import { AddUserComponent } from './add-user/add-user.component';
+import { AddPlayerComponent } from './add-player/add-player.component';
 import { MenubarModule } from 'primeng/menubar';
+import { ArchivePlayerComponent } from './archive-player/archive-player.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MenubarModule } from 'primeng/menubar';
     PlayerRankingsComponent,
     AddMatchComponent,
     MatchesComponent,
-    AddUserComponent
+    AddPlayerComponent,
+    ArchivePlayerComponent
   ],
   imports: [
     HttpClientModule,
