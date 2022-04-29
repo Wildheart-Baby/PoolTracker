@@ -47,7 +47,11 @@ export class PlayerService {
 
    /** A method to return the name of a player from the players list */ 
    getPlayerName(id: number): string{
-    return this.dataStore.players.find(x => x.id === id)?.name as string;
+    const player = this.dataStore.players.find(x => x.id === id);
+    if(player){
+      return player.name;
+    }
+    return "";
    } 
   
    
