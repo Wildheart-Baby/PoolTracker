@@ -23,7 +23,7 @@ export class AddPlayerComponent implements OnInit {
 
   initialiseForm(): void {
     this.playerForm = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]),
       wins: new FormControl(0),
       losses: new FormControl(0),
       archived: new FormControl(false)

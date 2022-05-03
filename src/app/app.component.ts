@@ -45,7 +45,7 @@ constructor(public dialogService: DialogService, private router: Router){}
     this.router.navigate(['/rankings']);
     this.dialogService.open(AddPlayerComponent, {         
       header: 'New player',     
-      width: '30%'
+      width: '40%'
     });
   }
 
