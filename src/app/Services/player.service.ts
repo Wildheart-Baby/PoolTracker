@@ -38,7 +38,8 @@ export class PlayerService {
 
   /**A method to mock return the players - TODO implement http call with an API */
   loadData() {      
-    return of(PlayersJson)
+    const playersUrl = 'http://localhost:8683/api/players' 
+    this.http.get<Player[]>(playersUrl)
     .subscribe(data => {
       this.dataStore.players = data;
       this._players.next(Object.assign({}, this.dataStore).players);

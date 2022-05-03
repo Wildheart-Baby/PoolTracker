@@ -35,9 +35,12 @@ export class MatchService {
     return this._matches.asObservable();
   }
 
+  
+
   /**A method to mock return the matches - TODO implement http call with an API */
-  loadData() {    
-    return of(MatchesJson)
+  loadData() {   
+    const matchesUrl = 'http://localhost:8683/api/matches' 
+    this.http.get<PlayedMatch[]>(matchesUrl)
     .subscribe(data => {
       this.dataStore.matches = data;
       this._matches.next(Object.assign({}, this.dataStore).matches);
