@@ -48,15 +48,18 @@ export class MatchService {
     }
 
     /** A method to add a match to the played matches array */
-    addMatch(match: Match): Promise<Match>{
-      return new Promise((resolver, reject) => {
+    addMatch(match: Match){
+      const matchesUrl = 'http://localhost:8683/api/matches'
+      
+      return this.http.post(matchesUrl, match);
+      /*return new Promise((resolver, reject) => {
         match.id = this.dataStore.matches.length + 1;
         this.dataStore.matches.push(this.newPlayedMatch(match));
         this._matches.next(Object.assign({}, this.dataStore).matches);
-        resolver(match);
+        resolver(match);*/
         
-      })
-    }
+      }
+    
 
     /** A method to create a played match object from the new match object */
     newPlayedMatch(match: Match): PlayedMatch{
@@ -65,7 +68,7 @@ export class MatchService {
       this.playedMatch.player1 = this.playerService.getPlayerName(match.player1_id);
       this.playedMatch.player2 = this.playerService.getPlayerName(match.player2_id);
       this.playedMatch.winner = this.playerService.getPlayerName(match.winner_id);
-      this.playedMatch.balls_left = match.balls_left;
+      //this.playedMatch.balls_left = match.balls_left;
       this.matchEnd = match.matchEnding;
       this.playedMatch.matchEnding = this.matchEnd;
       return this.playedMatch;
