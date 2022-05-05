@@ -90,11 +90,12 @@ export class AddMatchComponent implements OnInit {
   }
   
   save(){ 
-    this.matchService.addMatch(this.matchForm.value)
+    /*this.matchService.addMatch(this.matchForm.value)
     .subscribe(response => {
       console.log(response);
       this.matchService.loadData();
-    });    
+    });  */
+    this.matchService.addMatch(this.matchForm.value);  
     this.dialogRef.close();
   }
 }

@@ -51,7 +51,10 @@ export class MatchService {
     addMatch(match: Match){
       const matchesUrl = 'http://localhost:8683/api/matches'
       
-      return this.http.post(matchesUrl, match);
+      return this.http.post<Match>(matchesUrl, match)
+      .subscribe(data => {
+        this.dataStore.matches.push(this.newPlayedMatch(data));
+      });
       /*return new Promise((resolver, reject) => {
         match.id = this.dataStore.matches.length + 1;
         this.dataStore.matches.push(this.newPlayedMatch(match));

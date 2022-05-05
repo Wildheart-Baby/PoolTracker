@@ -56,6 +56,11 @@ export class PlayerService {
    } 
   
    addPlayer(player: Player){
+    const playersUrl = 'http://localhost:8683/api/players'
+      
+      return this.http.post(playersUrl, player)
+      .subscribe(this.loadData);
+
     player.id = this.dataStore.players.length + 1;     
     player.position = player.id;
     this.dataStore.players.push(player);
