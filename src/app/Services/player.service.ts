@@ -38,7 +38,7 @@ export class PlayerService {
 
   /**A method to mock return the players - TODO implement http call with an API */
   loadData() {      
-    const playersUrl = 'http://localhost:8683/api/players' 
+    const playersUrl = 'http://localhost:8683/api/leaderboard' 
     this.http.get<Player[]>(playersUrl)
     .subscribe(data => {
       this.dataStore.players = data;
