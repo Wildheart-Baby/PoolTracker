@@ -54,6 +54,7 @@ export class MatchService {
       return this.http.post<Match>(matchesUrl, match)
       .subscribe(data => {
         this.dataStore.matches.push(this.newPlayedMatch(data));
+        this._matches.next(Object.assign({}, this.dataStore).matches);
       });
       /*return new Promise((resolver, reject) => {
         match.id = this.dataStore.matches.length + 1;

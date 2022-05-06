@@ -38,7 +38,7 @@ export class PlayerService {
 
   /**A method to mock return the players - TODO implement http call with an API */
   loadData() {      
-    const playersUrl = 'http://localhost:8683/api/leaderboard' 
+    const playersUrl = 'http://localhost:8683/api/players' 
     this.http.get<Player[]>(playersUrl)
     .subscribe(data => {
       this.dataStore.players = data;
@@ -55,21 +55,25 @@ export class PlayerService {
     return "";
    } 
   
-   addPlayer(player: Player){
+   /** A method to add a player to the database */
+   addPlayer (player: Player){
     const playersUrl = 'http://localhost:8683/api/players'
       
-      return this.http.post(playersUrl, player)
-      .subscribe(this.loadData);
-
-    player.id = this.dataStore.players.length + 1;     
-    player.position = player.id;
-    this.dataStore.players.push(player);
-    this._players.next(Object.assign({}, this.dataStore).players);
+      return this.http.post<Player>(playersUrl, player)
+      .subscribe(data => {
+        data.position = this.dataStore.players.length + 1;
+        this.dataStore.players.push(data);
+      });
    }
 
-   archivePlayer(player: Player){
-      const player1Index = this.dataStore.players.findIndex(x => x.id === player.id);
-      this.dataStore.players[player1Index].archived = true;
+   /** A method to archive a player */
+   archivePlayer(player: number){
+      //const player1Index = this.dataStore.players.findIndex(x => x.id === player.id);
+      //this.dataStore.players[player1Index].archived = true;
+      
+    const playersUrl = 'http://localhost:8683/api/players'
+      return this.http.put(playersUrl, player);
+      //.subscribe(this.getPlayers);
    }
 
 }
