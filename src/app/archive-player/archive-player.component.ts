@@ -39,8 +39,7 @@ export class ArchivePlayerComponent implements OnInit {
   }
 
   save(){
-    const player_id = this.archiveForm.value;
-    this.playerService.archivePlayer(player_id);
+    this.playerService.archivePlayer(this.archiveForm.value);
     this.dialogRef.close();
   }
 

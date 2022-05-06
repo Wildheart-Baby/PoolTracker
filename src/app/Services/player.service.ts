@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Player } from '../Model/player';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import PlayersJson from '../../assets/playerData.json';
 
 @Injectable({
   providedIn: 'root'
@@ -67,12 +66,12 @@ export class PlayerService {
    }
 
    /** A method to archive a player */
-   archivePlayer(player: number){
+   archivePlayer(player: Player){
       //const player1Index = this.dataStore.players.findIndex(x => x.id === player.id);
       //this.dataStore.players[player1Index].archived = true;
       
     const playersUrl = 'http://localhost:8683/api/players'
-      return this.http.put(playersUrl, player);
+      return this.http.put<Player>(playersUrl, player);
       //.subscribe(this.getPlayers);
    }
 
