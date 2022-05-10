@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Player } from '../Model/player';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import PlayersJson from '../../assets/playerData.json';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +54,15 @@ export class PlayerService {
     }
     return "";
    } 
+
+   /** A method to check if a name has been used */
+   checkPlayerExists(name: string){
+    const player = this.dataStore.players.find(x => x.name === name);
+    if(player){
+      return true;
+    }
+    return null;
+  }
   
    /** A method to add a player to the database */
    addPlayer (player: Player){
@@ -67,12 +77,10 @@ export class PlayerService {
 
    /** A method to archive a player */
    archivePlayer(player: Player){
-      //const player1Index = this.dataStore.players.findIndex(x => x.id === player.id);
-      //this.dataStore.players[player1Index].archived = true;
-      
-    const playersUrl = 'http://localhost:8683/api/players'
-      return this.http.put<Player>(playersUrl, player);
-      //.subscribe(this.getPlayers);
+      const pid = player.id as number; 
+      const playersUrl = 'http://localhost:8683/api/players/archive/';      
+      return this.http.put(playersUrl, pid)
+      .subscribe();
    }
 
 }
