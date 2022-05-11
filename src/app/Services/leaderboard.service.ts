@@ -26,11 +26,11 @@ export class LeaderboardService {
   /**A method to get the players */
   getLeaderBoard(): Observable<Player[]>{       
     const playersUrl = 'http://localhost:8683/api/leaderboard' 
-    this.http.get<Player[]>(playersUrl)
-    .subscribe(data => {
+    return this.http.get<Player[]>(playersUrl);
+    /*.subscribe(data => {
       this.dataStore.players = data;
       this._players.next(Object.assign({}, this.dataStore).players);
-    });
-    return this._players.asObservable();
+    });*/
+    //return this._players.asObservable();
   }
 }

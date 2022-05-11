@@ -17,7 +17,7 @@ import {DialogService, DynamicDialogConfig, DynamicDialogRef} from 'primeng/dyna
 export class MatchesComponent implements OnInit {
 
   matches: PlayedMatch[] = [];
-  
+  ref: DynamicDialogRef = new DynamicDialogRef;
 
   constructor(private matchesService: MatchService, public dialogService: DialogService) {  }
 
@@ -25,7 +25,7 @@ export class MatchesComponent implements OnInit {
     this.getMatches();
   }
 
-  /** A method to return the matches */
+  /** A method to get the matches from the match service*/
   getMatches(): void {
     this.matchesService.getMatches()
     .subscribe(matches => {
@@ -36,9 +36,10 @@ export class MatchesComponent implements OnInit {
    /**The function to open a dialog with the new match component */
    openNewMatchDialog(): void {
      console.log("some test words");
-    this.dialogService.open(AddMatchComponent, {         
+     this.ref = this.dialogService.open(AddMatchComponent, {         
       header: 'New match',     
       width: '40%'
     });
+    this.ref.onClose.subscribe(this.getMatches);
   }
 }

@@ -5,6 +5,7 @@ import { PlayerService } from '../Services/player.service';
 import { MatchService } from '../Services/match.service';
 import { MatchEnding } from '../Model/matchEnding';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { BallsLeft } from '../Model/ballsleft';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class AddMatchComponent implements OnInit {
   winnerOptions: Player[] = [new Player(), new Player()];
   matchForm: any;
 
-  ballsLeft: string[] = ["0", "1", "2", "3", "4", "5", "6", "7"]
+  ballsLeft: BallsLeft[];
 
   matchEndingList: (string | MatchEnding)[] = [];
 
@@ -27,7 +28,18 @@ export class AddMatchComponent implements OnInit {
     private matchService: MatchService,
     private formBuilder: FormBuilder,
     private dialogRef: DynamicDialogRef
-  ) { }
+  ) {
+    this.ballsLeft =  [
+      {ball: '0', indexNumber: 0},
+      {ball: '1', indexNumber: 1},
+      {ball: '2', indexNumber: 2},
+      {ball: '3', indexNumber: 3},
+      {ball: '4', indexNumber: 4},
+      {ball: '5', indexNumber: 5},
+      {ball: '6', indexNumber: 6},
+      {ball: '7', indexNumber: 7},
+    ];
+   }
 
   ngOnInit(): void {
     this.initialiseForm();

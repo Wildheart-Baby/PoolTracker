@@ -69,10 +69,7 @@ export class PlayerService {
     const playersUrl = 'http://localhost:8683/api/players'
       
       return this.http.post<Player>(playersUrl, player)
-      .subscribe(data => {
-        data.position = this.dataStore.players.length + 1;
-        this.dataStore.players.push(data);
-      });
+      .subscribe();
    }
 
    /** A method to archive a player */
